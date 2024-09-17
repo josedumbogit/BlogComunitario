@@ -1,0 +1,25 @@
+﻿@model List<Category>
+<h2>Posts</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a href="/Posts/Edit/@item.Id">Edit</a> |
+                    <a href="/Posts/Details/@item.Id">Details</a> |
+                    <a href="/Posts/Delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Categories/Create">Create New</a>

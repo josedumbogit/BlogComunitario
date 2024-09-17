@@ -8,20 +8,21 @@ namespace BlogComunitario.Models
 	{
 		public int Id { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "O título é obrigatório")]
 		[StringLength(200)]
 		public string Title { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "O conteúdo é obrigatório")]
 		public string Content { get; set; }
 
 		public string ImageUrl { get; set; }
 
 		public DateTime DatePosted { get; set; } = DateTime.Now;
 
-		// Foreign Key para Categoria
-		public int CategoryId { get; set; }
-		public Category Category { get; set; }
+        // Foreign Key para Categoria
+        [Required(ErrorMessage = "A categoria é obrigatória")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
 		// Relacionamento muitos para muitos com Tag
 		public List<PostTag> PostTags { get; set; }

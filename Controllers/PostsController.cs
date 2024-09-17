@@ -51,7 +51,7 @@ namespace BlogComunitario.Controllers
 		// POST: Posts/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("Id,Title,Content,CreatedAt")] Post post)
+		public async Task<IActionResult> Create([Bind("Id,Title,Content,DatePosted,CategoryId")] Post post)
 		{
 			if (ModelState.IsValid)
 			{
