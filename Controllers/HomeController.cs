@@ -15,7 +15,12 @@ namespace BlogComunitario.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            return View();
 		}
 
 		public IActionResult Privacy()
